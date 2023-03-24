@@ -1,5 +1,5 @@
 {
-  "name": "starkdefi-components-lib",
+  "name": "@starkdefi/starkdefi-components-lib",
   "version": "1.0.0",
   "description": "Component library for Starkdefi",
   "main": "index.ts",
@@ -34,5 +34,8 @@
     "webpack": "^5.76.3",
     "webpack-cli": "^5.0.1",
     "webpack-dev-server": "^4.13.1"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   }
 }
