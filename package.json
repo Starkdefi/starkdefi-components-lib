@@ -1,5 +1,5 @@
 {
-  "name": "starkdefi-components",
+  "name": "starkdefi-components-lib",
   "version": "1.0.0",
   "description": "Component library for Starkdefi",
   "main": "index.ts",
