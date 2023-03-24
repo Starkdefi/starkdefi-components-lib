@@ -11,13 +11,9 @@ jobs:
   publish:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [14.x, 16.x, 18.x]
-
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Check for version changes
         id: check_version
@@ -28,9 +24,9 @@ jobs:
 
       - name: Setup Node.js
         if: env.VERSION_CHANGED == '1'
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 16
           registry-url: https://npm.pkg.github.com/
           scope: "@starkdefi"
 
