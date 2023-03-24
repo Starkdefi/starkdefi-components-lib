@@ -1,0 +1,38 @@
+{
+  "name": "starkdefi-components",
+  "version": "1.0.0",
+  "description": "Component library for Starkdefi",
+  "main": "index.ts",
+  "scripts": {
+    "start": "webpack serve --mode development",
+    "build": "webpack --mode production"
+  },
+  "author": "Starkdefi",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.21.3",
+    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-react": "^7.18.6",
+    "@svgr/webpack": "^7.0.0",
+    "@types/node": "^18.15.7",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "autoprefixer": "^10.4.14",
+    "babel-loader": "^9.1.2",
+    "css-loader": "^6.7.3",
+    "postcss": "^8.4.21",
+    "postcss-loader": "^7.1.0",
+    "style-loader": "^3.3.2",
+    "tailwindcss": "^3.2.7",
+    "ts-loader": "^9.4.2",
+    "typescript": "^5.0.2",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.76.3",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.13.1"
+  }
+}

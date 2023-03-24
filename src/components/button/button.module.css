@@ -1,0 +1,64 @@
+.button {
+  @apply flex items-center justify-center rounded-3xl py-1 xl:px-10 px-6 text-green_light;
+}
+
+.regular {
+  @apply transition-all ease-in duration-200 bg-green_light5;
+}
+
+.regular-outline {
+  @apply transition-all ease-in duration-200 bg-transparent border border-green_light/60;
+}
+
+.regular-outline:hover {
+  @apply border-green_light/30;
+}
+
+
+.regular:hover,
+.regular:hover path {
+  @apply bg-green_light text-white fill-white;
+}
+
+.ringed {
+  @apply bg-btn_black text-green_light1 relative;
+  @apply bg-clip-border border-2 border-transparent;
+  transition: 'all 0.2s linear 0s';
+}
+
+.ringed::before {
+  content: '';
+  z-index: -1;
+  margin: -3px;
+  border-radius: inherit;
+  @apply absolute;
+  @apply top-0 bottom-0 right-0 left-0;
+  transition: all 0.2s linear 0s;
+
+  background: linear-gradient(
+    337deg,
+    theme(colors[green_light]) 12%,
+    transparent 31%,
+    transparent 72%,
+    theme(colors[green_light]) 92%
+  );
+}
+
+.ringed:hover::before {
+  background: linear-gradient(
+    351deg,
+    theme(colors[green_light]) 12%,
+    transparent 31%,
+    transparent 45%,
+    theme(colors[green_light]) 81%
+  );
+}
+
+.ringed[disabled] {
+  @apply opacity-40 pointer-events-none !text-green_light2;
+}
+
+.ringed[disabled]::before,
+.ringed[disabled]:hover::before {
+  @apply content-none;
+}
