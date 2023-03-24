@@ -34,7 +34,7 @@ pnpm start
 Import the components you need from the library.
 
 ```tsx
-import { Button } from 'starkdefi-component-library'
+import { Button } from 'starkdefi-component-lib'
 
 const App = () => {
   return <Button btnType="ringed">Click me</Button>
