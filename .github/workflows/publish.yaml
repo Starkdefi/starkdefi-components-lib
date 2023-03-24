@@ -21,9 +21,12 @@ jobs:
           git fetch --depth=1 origin main
           VERSION_CHANGED=$(git diff --name-only --diff-filter=M origin/main package.json | grep package.json | wc -l)
           echo "VERSION_CHANGED=$VERSION_CHANGED" >> $GITHUB_ENV
-
+          
+      - name: Print GITHUB_ENV
+        run: cat $GITHUB_ENV
+        
       - name: Setup Node.js
-        if: env.VERSION_CHANGED == 1
+        if: env.VERSION_CHANGED == '1'
         uses: actions/setup-node@v3
         with:
           node-version: 16
@@ -31,11 +34,11 @@ jobs:
           scope: "@starkdefi"
 
       - name: Install dependencies
-        if: env.VERSION_CHANGED == 1
+        if: env.VERSION_CHANGED == '1'
         run: npm ci
 
       - name: Build and Publish
-        if: env.VERSION_CHANGED == 1
+        if: env.VERSION_CHANGED == '1'
         run: |
           npm run build
           npm publish
