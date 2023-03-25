@@ -1,4 +1,5 @@
 # Starkdefi Component Library
+[![Publish to GitHub Packages](https://github.com/Starkdefi/starkdefi-components-lib/actions/workflows/publish.yaml/badge.svg)](https://github.com/Starkdefi/starkdefi-components-lib/actions/workflows/publish.yaml)
 
 This is a component library package for Starkdefi built with [React](https://reactjs.org/), [Typescript](https://www.typescriptlang.org/), and [TailwindCSS](https://tailwindcss.com/).
 
