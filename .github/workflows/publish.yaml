@@ -14,18 +14,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-
-      - name: Check for version changes
-        id: check_version
-        run: |
-          VERSION_CHANGED=$(git log -1 --pretty=format:"%h" -- package.json | wc -l)
-          echo "VERSION_CHANGED=$VERSION_CHANGED" >> $GITHUB_ENV
-          
-      - name: Print GITHUB_ENV
-        run: cat $GITHUB_ENV
         
       - name: Setup Node.js
-        if: env.VERSION_CHANGED == '1'
         uses: actions/setup-node@v3
         with:
           node-version: 16
@@ -33,11 +23,9 @@ jobs:
           scope: "@starkdefi"
 
       - name: Install dependencies
-        if: env.VERSION_CHANGED == '1'
         run: npm ci
 
       - name: Build and Publish
-        if: env.VERSION_CHANGED == '1'
         run: |
           npm run build
           npm publish
