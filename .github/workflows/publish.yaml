@@ -18,7 +18,7 @@ jobs:
       - name: Check for version changes
         id: check_version
         run: |
-          VERSION_CHANGED=$(git diff HEAD^ HEAD -- package.json | grep -c '"version"')
+          VERSION_CHANGED=$(git log -1 --pretty=format:"%h" -- package.json | wc -l)
           echo "VERSION_CHANGED=$VERSION_CHANGED" >> $GITHUB_ENV
           
       - name: Print GITHUB_ENV
