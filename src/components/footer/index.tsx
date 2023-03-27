@@ -8,14 +8,10 @@ import { ReactComponent as Medium } from "../../assets/icons/medium.svg";
 import { ReactComponent as Twitter } from "../../assets/icons/twitter.svg";
 import { ReactComponent as Telegram } from "../../assets/icons/telegram.svg";
 import { ReactComponent as Github } from "../../assets/icons/github.svg";
-import resolveConfig from "tailwindcss/resolveConfig";
-const config = require("../../../tailwind.config.js");
-
-const fullConfig = resolveConfig(config);
-const colors = fullConfig.theme.colors;
-console.log(fullConfig.theme.colors);
-
+import theme from "../theme";
 import Button from "../button";
+
+const colors = theme.colors;
 
 const socials = [
   {
@@ -140,7 +136,8 @@ export default function Footer({
               rel="noreferrer"
             >
               <Button
-                className={`xl:text-[18px] md:text-[14px] text-[12px] !text-[var(--accent-color)] bg-green_2 rounded`}
+                className={`xl:text-[18px] md:text-[14px] text-[12px] rounded`}
+                backgroundColor={colors.green_2}
               >
                 <p className="flex gap-3 items-center py-1">
                   Contact Us <Arrow className={styles.arrow} />
@@ -155,6 +152,7 @@ export default function Footer({
               <Button
                 className="txl:text-[18px] !text-[var(--accent-color)]  md:text-[14px] text-[12px]"
                 btnType="ringed"
+                backgroundColor={colors.btn_black}
               >
                 <p className="flex gap-3 items-center py-1">
                   Join Our Community <Arrow className={styles.arrow} />

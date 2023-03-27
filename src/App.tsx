@@ -2,6 +2,8 @@
 import React from "react";
 import Button from "./components/button";
 import Footer from "./components/footer";
+import theme from "./components/theme";
+const colors = theme.colors;
 
 const Heading: React.FC<{ text: string }> = ({ text }) => {
   return (
@@ -23,11 +25,26 @@ export const App: React.FC = () => {
           <Button
             className="txl:text-[18px]  md:text-[14px] text-[12px]"
             btnType="ringed"
+            backgroundColor="black"
           >
             <p className="flex gap-3 items-center py-1">Join Our Community</p>
           </Button>
-          <Button className="xl:text-[18px] md:text-[14px] text-[12px] text-green_light bg-green_2 rounded">
+          <Button
+            className="xl:text-[18px] md:text-[14px] text-[12px] rounded"
+            accentColor="red"
+            textColor={colors.green_light}
+            backgroundColor={colors.green_2}
+          >
             <p className="flex gap-3 items-center py-1">Contact Us</p>
+          </Button>
+
+          <Button
+            btnType="regular-outline"
+            textColor="red"
+            accentColor="red"
+            className="xl:text-[18px] md:text-[14px] text-[12px] rounded"
+          >
+            <p className="flex gap-3 items-center py-1">Launch</p>
           </Button>
         </div>
       </div>
