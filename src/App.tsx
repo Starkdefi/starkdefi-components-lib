@@ -50,7 +50,7 @@ export const App: React.FC = () => {
       </div>
       <div className="mt-10">
         <Heading text="Footer" />
-        <Footer backgroundColor="black" />
+        <Footer textColor="" />
       </div>
     </>
   );
