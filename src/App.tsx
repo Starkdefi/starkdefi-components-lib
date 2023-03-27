@@ -5,7 +5,9 @@ import Footer from "./components/footer";
 
 const Heading: React.FC<{ text: string }> = ({ text }) => {
   return (
-    <h2 className="text-[30.29px] text-green_dark leading-[160%] text-center">{text}</h2>
+    <h2 className="text-[30.29px] text-green_dark leading-[160%] text-center">
+      {text}
+    </h2>
   );
 };
 
@@ -30,8 +32,8 @@ export const App: React.FC = () => {
         </div>
       </div>
       <div className="mt-10">
-      <Heading text="Footer" />
-        <Footer />
+        <Heading text="Footer" />
+        <Footer backgroundColor="black" />
       </div>
     </>
   );

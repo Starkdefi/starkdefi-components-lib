@@ -4,39 +4,40 @@
 
 .footer::before {
   content: "";
-  @apply bg-green_dark2 absolute w-full h-full top-0 left-0 -z-[2];
+  @apply absolute w-full h-full top-0 left-0 -z-[2];
 }
 
 .section_head {
-  @apply text-white font-CeraPro-Bold xl:text-[20px] text-[18px];
+  @apply font-CeraPro-Bold xl:text-[20px] text-[18px];
 }
 
 .section_column {
   @apply flex items-start justify-between flex-col md:w-[20%] w-1/2 xl:h-[250px] md:h-[225px] h-[190px];
 }
 
-.section_nav_link {
+.section_nav_link,
+.tos_pp {
   @apply transition-all ease-in duration-200;
-  @apply text-white text-opacity-[0.81] font-CeraPro-Light py-2 xl:text-[15px] lg:text-[14px] text-[12px];
-}
-
-.section_nav_link:hover {
-  @apply text-green_light text-opacity-[0.95];
+  @apply text-opacity-[0.81] font-CeraPro-Light py-2 xl:text-[15px] lg:text-[14px] text-[12px];
 }
 
 .tos_pp {
-  @apply transition-all ease-in duration-200;
-  @apply text-white text-opacity-[0.81] font-CeraPro-Light xl:text-[20px] lg:text-[18px] text-[16px] underline;
+  @apply xl:text-[20px] lg:text-[18px] text-[16px] underline;
 }
 
-.tos_pp:hover {
-  @apply text-green_light text-opacity-[0.95];
+.tos_pp:hover,
+.section_nav_link:hover {
+  @apply text-opacity-[0.95];
 }
 
 .social_icon path {
-  @apply transition-all ease-in duration-200;
+  @apply fill-[var(--social-color)] transition-all ease-in duration-200;
 }
 
 .social_icon:hover path {
-  @apply fill-green_light !important;
+  @apply fill-[var(--accent-color)] !important;
+}
+
+.arrow path {
+@apply fill-[var(--accent-color)];
 }

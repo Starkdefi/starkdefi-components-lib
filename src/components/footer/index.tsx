@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import styles from "./footer.module.css";
 import { ReactComponent as Logo } from "../../assets/icons/logo.svg";
 import { ReactComponent as Powered } from "../../assets/icons/powered.svg";
@@ -8,10 +8,14 @@ import { ReactComponent as Medium } from "../../assets/icons/medium.svg";
 import { ReactComponent as Twitter } from "../../assets/icons/twitter.svg";
 import { ReactComponent as Telegram } from "../../assets/icons/telegram.svg";
 import { ReactComponent as Github } from "../../assets/icons/github.svg";
+import resolveConfig from "tailwindcss/resolveConfig";
+const config = require("../../../tailwind.config.js");
+
+const fullConfig = resolveConfig(config);
+const colors = fullConfig.theme.colors;
+console.log(fullConfig.theme.colors);
 
 import Button from "../button";
-
-console.log(Logo, Powered);
 
 const socials = [
   {
@@ -36,19 +40,95 @@ const socials = [
   },
 ];
 
-export default function Footer() {
+const Link: React.FC<
+  {
+    children: ReactNode;
+    textColor?: string;
+    accentColor?: string;
+  } & React.HTMLProps<HTMLAnchorElement>
+> = ({ children, textColor, accentColor, ...props }) => {
   return (
-    <footer className={`${styles.footer}`}>
+    <a
+      className={`${styles.section_nav_link} text-[var(--text-color)] hover:text-[var(--accent-color)]`}
+      href={props.href}
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      {children}
+    </a>
+  );
+};
+
+const LegalLink: React.FC<
+  {
+    children: ReactNode;
+    textColor?: string;
+    accentColor?: string;
+  } & React.HTMLProps<HTMLAnchorElement>
+> = ({ children, textColor, accentColor, ...props }) => {
+  return (
+    <a
+      className={`${styles.tos_pp} text-[var(--text-color)] hover:text-[var(--accent-color)]`}
+      href={props.href}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {children}
+    </a>
+  );
+};
+
+interface FooterProps {
+  style?: React.CSSProperties;
+  backgroundColor?: string;
+  textColor?: string;
+  accentColor?: string;
+  socialColor?: string;
+  className?: string;
+}
+
+/**
+ * StarkDefi Footer component
+ * This component renders a footer with a logo, an optional title, and a list of social icons.
+ * @param {FooterProps} props
+ * @returns {JSX.Element}
+ */
+
+export default function Footer({
+  style,
+  backgroundColor,
+  textColor,
+  accentColor,
+  socialColor,
+  className,
+}: FooterProps) {
+  return (
+    <footer
+      style={
+        {
+          "--bg-color": backgroundColor ? backgroundColor : colors.green_dark2,
+          "--text-color": textColor ? textColor : "white",
+          "--accent-color": accentColor ? accentColor : colors.green_light,
+          "--social-color": socialColor ? socialColor : "#9B9C9D",
+          ...style,
+        } as React.CSSProperties
+      }
+      className={`${styles.footer} before:bg-[var(--bg-color)] ${
+        className ?? ""
+      }`}
+    >
       <section className="xl:max-container md:px-8 px-4 m-auto flex items-start justify-between flex-wrap md:flex-nowrap">
         <div className="lg:w-[55%] md:w-[40%] w-full">
           <div className="flex flex-col gap-4">
             <a href="/">
-              <Logo className={styles.logo} />
+              <Logo />
             </a>
 
             <p className="flex items-center gap-2 opacity-40 pt-4">
               <Powered />
-              <span className="text-white font-CeraPro-Light leading-[160%]">
+              <span
+                className={`text-[var(--text-color)] font-CeraPro-Light leading-[160%]`}
+              >
                 Powered by StarkNet
               </span>
             </p>
@@ -59,7 +139,9 @@ export default function Footer() {
               target="_blank"
               rel="noreferrer"
             >
-              <Button className="xl:text-[18px] md:text-[14px] text-[12px] text-green_light bg-green_2 rounded">
+              <Button
+                className={`xl:text-[18px] md:text-[14px] text-[12px] !text-[var(--accent-color)] bg-green_2 rounded`}
+              >
                 <p className="flex gap-3 items-center py-1">
                   Contact Us <Arrow className={styles.arrow} />
                 </p>
@@ -71,7 +153,7 @@ export default function Footer() {
               rel="noopener noreferrer"
             >
               <Button
-                className="txl:text-[18px]  md:text-[14px] text-[12px]"
+                className="txl:text-[18px] !text-[var(--accent-color)]  md:text-[14px] text-[12px]"
                 btnType="ringed"
               >
                 <p className="flex gap-3 items-center py-1">
@@ -84,49 +166,48 @@ export default function Footer() {
 
         <div className={styles.section_column}>
           <div>
-            <h3 className={styles.section_head}>Documentation</h3>
+            <h3 className={`${styles.section_head} text-[var(--text-color)]`}>
+              Documentation
+            </h3>
             <div className="flex items-start justify-between flex-col pt-4">
-              <a
-                className={styles.section_nav_link}
+              <Link
+                textColor={textColor}
+                accentColor={accentColor}
                 href="https://docs.starkdefi.com/project-overview"
-                rel="noopener noreferrer"
-                target="_blank"
               >
                 Litepaper
-              </a>
-
-              <a
-                className={styles.section_nav_link}
+              </Link>
+              <Link
+                textColor={textColor}
+                accentColor={accentColor}
                 href="https://docs.starkdefi.com/quick-start/connect-to-starkdefi"
-                target="_blank"
-                rel="noopener noreferrer"
               >
                 How to connect wallet
-              </a>
-
-              <a
-                className={styles.section_nav_link}
+              </Link>
+              <Link
+                textColor={textColor}
+                accentColor={accentColor}
                 href="https://docs.starkdefi.com/extras/resources"
-                target="_blank"
-                rel="noopener noreferrer"
               >
                 Resources
-              </a>
+              </Link>
             </div>
           </div>
-          <a
-            className={styles.tos_pp}
+
+          <LegalLink
+            textColor={textColor}
+            accentColor={accentColor}
             href="https://docs.starkdefi.com/extras/privacy-policy"
-            target="_blank"
-            rel="noopener noreferrer"
           >
             Privacy Policy
-          </a>
+          </LegalLink>
         </div>
 
         <div className={styles.section_column}>
           <div>
-            <h3 className={styles.section_head}>Social</h3>
+            <h3 className={`${styles.section_head} text-[var(--text-color)]`}>
+              Social
+            </h3>
             <div className="flex items-center lg:justify-between justify-start lg:flex-nowrap flex-wrap gap-3 pt-4">
               {socials.map((social) => (
                 <a
@@ -136,19 +217,18 @@ export default function Footer() {
                   key={social.url}
                   rel="noopener noreferrer"
                 >
-                  <social.Icon className={styles.social_icon} />
+                  <social.Icon className={`${styles.social_icon} `} />
                 </a>
               ))}
             </div>
           </div>
-          <a
-            className={styles.tos_pp}
+          <LegalLink
+            textColor={textColor}
+            accentColor={accentColor}
             href="https://docs.starkdefi.com/extras/terms-of-use"
-            target="_blank"
-            rel="noopener noreferrer"
           >
             Terms of Use
-          </a>
+          </LegalLink>
         </div>
       </section>
     </footer>
