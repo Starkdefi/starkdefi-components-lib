@@ -1,33 +1,32 @@
 .button {
-  @apply flex items-center justify-center rounded-3xl py-1 xl:px-10 px-6 text-green_light;
+  @apply flex items-center justify-center rounded-3xl py-1 xl:px-10 px-6 text-[var(--btn-text-color)];
 }
 
-.regular {
-  @apply transition-all ease-in duration-200 bg-green_light5;
+.regular, .regular path {
+  @apply transition-all ease-in duration-200 bg-[var(--btn-bg-color)];
 }
 
 .regular-outline {
-  @apply transition-all ease-in duration-200 bg-transparent border border-green_light/60;
+  @apply transition-all ease-in duration-200 bg-transparent border border-[var(--btn-accent-color)] ;
 }
 
 .regular-outline:hover {
-  @apply border-green_light/30;
+  @apply border-[var(--btn-accent-color)] opacity-75;
 }
-
 
 .regular:hover,
 .regular:hover path {
-  @apply bg-green_light text-white fill-white;
+  @apply bg-[var(--btn-text-color)] text-[var(--btn-hover-text-color)] fill-[var(--btn-hover-text-color)];
 }
 
 .ringed {
-  @apply bg-btn_black text-green_light1 relative;
+  @apply bg-[var(--btn-bg-color)] text-[var(--btn-text-color)] relative;
   @apply bg-clip-border border-2 border-transparent;
-  transition: 'all 0.2s linear 0s';
+  transition: "all 0.2s linear 0s";
 }
 
 .ringed::before {
-  content: '';
+  content: "";
   z-index: -1;
   margin: -3px;
   border-radius: inherit;
@@ -37,20 +36,20 @@
 
   background: linear-gradient(
     337deg,
-    theme(colors[green_light]) 12%,
+    var(--btn-accent-color) 12%,
     transparent 31%,
     transparent 72%,
-    theme(colors[green_light]) 92%
+    var(--btn-accent-color) 92%
   );
 }
 
 .ringed:hover::before {
   background: linear-gradient(
     351deg,
-    theme(colors[green_light]) 12%,
+    var(--btn-accent-color) 12%,
     transparent 31%,
     transparent 45%,
-    theme(colors[green_light]) 81%
+    var(--btn-accent-color) 81%
   );
 }
 
