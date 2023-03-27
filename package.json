@@ -1,8 +1,9 @@
 {
   "name": "@starkdefi/starkdefi-components-lib",
-  "version": "1.0.2",
+  "version": "1.0.2-beta",
   "description": "Component library for Starkdefi",
-  "main": "index.ts",
+  "main": "dist/index.ts",
+  "types": "dist/index.d.ts",
   "scripts": {
     "start": "webpack serve --mode development",
     "build": "tsc --project tsconfig.build.json && npm run copy-assets",
