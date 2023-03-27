@@ -21,7 +21,7 @@ export const App: React.FC = () => {
       </h1>
       <div className="flex flex-col items-center">
         <Heading text="Buttons" />
-        <div className="flex gap-3">
+        <div className="flex gap-3 flex-wrap">
           <Button
             className="txl:text-[18px]  md:text-[14px] text-[12px]"
             btnType="ringed"
