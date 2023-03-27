@@ -8,6 +8,7 @@ module.exports = {
     filename: "index.js",
     libraryTarget: "umd",
     globalObject: "this",
+    publicPath: "",
   },
   plugins: [
     new webpack.DefinePlugin({
