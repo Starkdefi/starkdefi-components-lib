@@ -5,7 +5,8 @@
   "main": "index.ts",
   "scripts": {
     "start": "webpack serve --mode development",
-    "build": "webpack --mode production"
+    "build": "tsc --project tsconfig.build.json && npm run copy-assets",
+    "copy-assets": "copyfiles -u 1 \"src/assets/**/*\" dist/"
   },
   "author": "Starkdefi",
   "license": "ISC",
@@ -23,6 +24,7 @@
     "@types/react-dom": "^18.0.11",
     "autoprefixer": "^10.4.14",
     "babel-loader": "^9.1.2",
+    "copyfiles": "^2.4.1",
     "css-loader": "^6.7.3",
     "postcss": "^8.4.21",
     "postcss-loader": "^7.1.0",
