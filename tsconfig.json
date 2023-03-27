@@ -16,7 +16,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": false,
-    "types": ["node"],
+    "types": ["node", "jest"],
     "plugins": [{ "name": "typescript-plugin-css-modules" }]
   },
   "include": ["src", "typings.d.ts"],
