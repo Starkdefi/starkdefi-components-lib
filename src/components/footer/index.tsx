@@ -45,7 +45,7 @@ const Link: React.FC<
 > = ({ children, textColor, accentColor, ...props }) => {
   return (
     <a
-      className={`${styles.section_nav_link} text-[var(--text-color)] hover:text-[var(--accent-color)]`}
+      className={`${styles.section_nav_link} text-[var(--text-color)] opacity-80  hover:text-[var(--accent-color)]`}
       href={props.href}
       rel="noopener noreferrer"
       target="_blank"
@@ -64,7 +64,7 @@ const LegalLink: React.FC<
 > = ({ children, textColor, accentColor, ...props }) => {
   return (
     <a
-      className={`${styles.tos_pp} text-[var(--text-color)] hover:text-[var(--accent-color)]`}
+      className={`${styles.tos_pp} text-[var(--text-color)] opacity-80 hover:text-[var(--accent-color)]`}
       href={props.href}
       target="_blank"
       rel="noopener noreferrer"
