@@ -1,6 +1,6 @@
 {
   "name": "@starkdefi/starkdefi-components-lib",
-  "version": "1.0.21-beta",
+  "version": "1.0.22-beta",
   "description": "Component library for Starkdefi",
   "main": "dist/index.ts",
   "types": "dist/index.d.ts",
